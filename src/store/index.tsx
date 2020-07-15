@@ -19,7 +19,7 @@ const Provider = ({ children }: ProviderProps): JSX.Element => {
 
   // States Object
   const states = {
-    // 搜索框字串
+    // 當前搜索之字串
     searchText,
     setSearchText,
   };
