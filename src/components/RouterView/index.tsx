@@ -9,7 +9,6 @@ const RoutePages = (): JSX.Element => (
       <Route key={route.name} {...route} />
     ))}
 
-    {/* 404 Page Setting */}
     <Route path="/404" component={NotFoundPage} />
     <Redirect to="/404" />
   </Switch>

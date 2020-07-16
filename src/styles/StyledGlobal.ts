@@ -32,12 +32,24 @@ const StyledGlobal = createGlobalStyle`
 		list-style-type: none;
 	}
 
+	button {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		background-color: transparent;
+	}
+
 	input,
 	button {
 		line-height: inherit;
 		&:focus {
 			outline: 0;
 		}
+	}
+
+	input {
+		border-width: 1px;
+		border-radius: 0;
 	}
 
 	button,

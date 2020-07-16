@@ -7,17 +7,15 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 
-const Layout = (): JSX.Element => {
-  return (
-    <StyledWrapper>
-      <Router>
-        <Header />
-        <Main />
-      </Router>
+const Layout = (): JSX.Element => (
+  <StyledWrapper>
+    <Router>
+      <Header />
+      <Main />
+    </Router>
 
-      <Footer />
-    </StyledWrapper>
-  );
-};
+    <Footer />
+  </StyledWrapper>
+);
 
 export default Layout;

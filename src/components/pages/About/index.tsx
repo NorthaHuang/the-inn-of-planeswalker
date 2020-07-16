@@ -1,18 +1,16 @@
 import React from 'react';
 import StyledWrapper from './styled';
 
-const About = (): JSX.Element => {
-  return (
-    <StyledWrapper>
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <p>About</p>
-          </div>
+const About = (): JSX.Element => (
+  <StyledWrapper>
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <p>About</p>
         </div>
       </div>
-    </StyledWrapper>
-  );
-};
+    </div>
+  </StyledWrapper>
+);
 
 export default About;
