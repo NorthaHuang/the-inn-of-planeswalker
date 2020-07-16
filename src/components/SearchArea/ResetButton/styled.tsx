@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
-const ButtonStyled = styled.button`
-  width: 1.5rem;
-  height: 1.5rem;
+const BUTTON_WH = '1.25rem';
 
+const ButtonStyled = styled.button`
+  width: ${BUTTON_WH};
+  height: ${BUTTON_WH};
   margin: auto;
-  padding: 0;
-  border: 0;
+  margin-right: 4px;
   transform: translate(0, 0);
-  background-color: transparent;
   position: absolute;
   top: 0;
   bottom: 0;

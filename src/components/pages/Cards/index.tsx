@@ -1,18 +1,16 @@
 import React from 'react';
 import StyledWrapper from './styled';
 
-const Cards = (): JSX.Element => {
-  return (
-    <StyledWrapper>
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <p>Cards</p>
-          </div>
+const Cards = (): JSX.Element => (
+  <StyledWrapper>
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <p>Cards</p>
         </div>
       </div>
-    </StyledWrapper>
-  );
-};
+    </div>
+  </StyledWrapper>
+);
 
 export default Cards;
