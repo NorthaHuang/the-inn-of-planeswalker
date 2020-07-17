@@ -10,6 +10,8 @@ const StyledGlobal = createGlobalStyle`
 	html {
 		font-size: 16px;
 		line-height: 1.5;
+		overflow-x: hidden;
+		overflow-y: scroll;
 	}
 	
 	html,

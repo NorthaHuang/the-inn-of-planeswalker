@@ -1,42 +1,79 @@
 import React, { useState, useContext, useLayoutEffect } from 'react';
 import StyledWrapper from './styled';
 import context from '../../../store';
-import { apiCardsSearch } from '../../../api';
+import { apiCardsSearch, CardsSearchParams } from '../../../api';
 
+import CardsHeader from '../../CardsHeader';
+import Pagination from '../../Pagination';
 import CardsList from '../../CardsList';
 
 const Cards = (): JSX.Element => {
   /* Context */
-  const { searchText } = useContext(context);
+  const { searchText, pagination, setPagination } = useContext(context);
 
   /* States */
-  const [list, setList] = useState<any[]>([]);
+  const [cardsData, setCardsData] = useState<any>(() => {});
 
-  /* Gets Cards List */
+  /* Get Card List */
+  const getCardList = (params: CardsSearchParams) => {
+    apiCardsSearch(params)
+      .then(response => setCardsData(response.data))
+      .catch(error => console.log(error));
+  };
+
+  /* Get new search data and back to page 1 */
   useLayoutEffect(() => {
-    apiCardsSearch({
+    setPagination({
+      ...pagination,
+      nowPage: 1,
+    });
+
+    getCardList({
       q: searchText,
-      include_extras: true,
-    })
-      .then(response => setList(response.data.data))
-      .catch(error => {
-        console.log(error);
-      });
+      page: 1,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText]);
+  /* Get other page's card list */
+  useLayoutEffect(() => {
+    getCardList({
+      q: searchText,
+      page: pagination.nowPage,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pagination.nowPage]);
+
+  /* 卡牌清單更新後解鎖 */
+  useLayoutEffect(() => {
+    setPagination({
+      ...pagination,
+      isLocked: false,
+    });
+    console.log('Unlocked!');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cardsData]);
 
   return (
     <StyledWrapper>
-      <header>
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <h2>List Header</h2>
-            </div>
-          </div>
-        </div>
-      </header>
+      {cardsData && Object.keys(cardsData).length > 0 && (
+        <>
+          <CardsHeader cardsData={cardsData} />
 
-      {list && <CardsList list={list} />}
+          {!pagination.isLocked && (
+            <>
+              <CardsList list={cardsData.data} />
+
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <Pagination cardsData={cardsData} />
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </>
+      )}
     </StyledWrapper>
   );
 };
