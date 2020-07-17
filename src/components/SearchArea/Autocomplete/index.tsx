@@ -20,7 +20,7 @@ enum SEARCH {
 
 const Autocomplete = ({ inputText, setInputText }: ComponentProps): JSX.Element => {
   /* Autocomplete Result List */
-  const [list, setList] = useState<string[]>([]);
+  const [list, setList] = useState<string[]>(() => []);
 
   /* 打字延遲搜尋用參數，避免 Request 過多 */
   const autocompleteRef = useRef<AutocompleteRef>({

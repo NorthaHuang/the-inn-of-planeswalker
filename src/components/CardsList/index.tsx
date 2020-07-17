@@ -13,8 +13,6 @@ interface ComponentProps {
  */
 
 const CardsList = ({ list }: ComponentProps): JSX.Element => {
-  console.log(list);
-
   return (
     <StyledWrapper>
       <div className="container">

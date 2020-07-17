@@ -9,10 +9,10 @@ import Autocomplete from './Autocomplete';
 
 const SearchInput = (): JSX.Element => {
   /* Context */
-  const { setSearchText } = useContext(context);
+  const { setSearchText, pagination, setPagination } = useContext(context);
 
   /* Local States */
-  const [inputText, setInputText] = useState<string>('');
+  const [inputText, setInputText] = useState<string>(() => '');
 
   /* 更新 Store 的搜索之字串 */
   const submit = (evt: React.FormEvent<HTMLFormElement>) => {
@@ -22,7 +22,14 @@ const SearchInput = (): JSX.Element => {
       return;
     }
 
+    // 更新搜索字串
     setSearchText(inputText);
+
+    // 換頁鎖定
+    setPagination({
+      ...pagination,
+      isLocked: true,
+    });
   };
 
   return (

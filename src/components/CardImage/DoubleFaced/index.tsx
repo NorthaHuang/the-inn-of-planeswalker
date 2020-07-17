@@ -6,7 +6,7 @@ interface ComponentProps {
 }
 
 const DoubleFaced = ({ card }: ComponentProps): JSX.Element => {
-  const [isTransformed, setIsTransformed] = useState<boolean>(false);
+  const [isTransformed, setIsTransformed] = useState<boolean>(() => false);
 
   return (
     <>

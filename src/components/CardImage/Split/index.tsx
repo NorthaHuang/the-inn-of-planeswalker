@@ -6,7 +6,7 @@ interface ComponentProps {
 }
 
 const Split = ({ card }: ComponentProps): JSX.Element => {
-  const [isRotate, setIsRotate] = useState<boolean>(false);
+  const [isRotate, setIsRotate] = useState<boolean>(() => false);
 
   return (
     <>

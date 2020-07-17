@@ -43,7 +43,7 @@ enum Dir {
 }
 
 // Search
-interface CardsSearchParams {
+export interface CardsSearchParams {
   q: string;
   unique?: Unique;
   order?: Order;
