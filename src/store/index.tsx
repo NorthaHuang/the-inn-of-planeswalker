@@ -15,7 +15,7 @@ const context = createContext({} as States);
 /* Provider Component */
 const Provider = ({ children }: ProviderProps): JSX.Element => {
   // TODO: 完成後記得刪除預設值
-  const [searchText, setSearchText] = useState<string>('b');
+  const [searchText, setSearchText] = useState<string>('Expansion');
 
   // States Object
   const states = {
