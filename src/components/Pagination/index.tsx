@@ -90,6 +90,10 @@ const Pagination = ({ cardsData }: ComponentProps): JSX.Element => {
   return (
     <StyledWrapper>
       {paginationButtonMeta.length > 0 &&
+        /**
+         * TODO: 總頁數 > 1 才顯示按鈕，其他地方等樣式設定後再來考慮
+         */
+        totalPageNumber > 1 &&
         paginationButtonMeta.map(({ id, children, paginationType, targetPage }) => (
           <PaginationButton
             key={id}
