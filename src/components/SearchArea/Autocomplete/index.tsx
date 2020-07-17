@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import StyledWrapper from './styled';
 import { apiCardsAutocomplete } from '../../../api';
 
@@ -28,7 +28,7 @@ const Autocomplete = ({ inputText, setInputText }: ComponentProps): JSX.Element 
   });
 
   /* inputText 更新即執行 */
-  useLayoutEffect(() => {
+  useEffect(() => {
     const refCurrent = autocompleteRef.current;
     // Clear Timeout
     clearTimeout(refCurrent.searchTimer);

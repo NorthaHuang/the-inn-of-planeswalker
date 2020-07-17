@@ -1,4 +1,4 @@
-import React, { useState, useContext, useLayoutEffect } from 'react';
+import React, { useState, useContext, useEffect, useLayoutEffect } from 'react';
 import StyledWrapper from './styled';
 import context from '../../../store';
 import { apiCardsSearch, CardsSearchParams } from '../../../api';
@@ -22,7 +22,7 @@ const Cards = (): JSX.Element => {
   };
 
   /* Get new search data and back to page 1 */
-  useLayoutEffect(() => {
+  useEffect(() => {
     setPagination({
       ...pagination,
       nowPage: 1,
@@ -35,7 +35,7 @@ const Cards = (): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText]);
   /* Get other page's card list */
-  useLayoutEffect(() => {
+  useEffect(() => {
     getCardList({
       q: searchText,
       page: pagination.nowPage,
