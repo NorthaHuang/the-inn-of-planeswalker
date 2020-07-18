@@ -1,21 +1,9 @@
-import React, { createContext, useState, Dispatch, SetStateAction } from 'react';
+import React, { createContext, useState } from 'react';
+import { ProviderProps, Pagination, DisplayFilter, States } from './interface';
 
-/* Interface */
-interface ProviderProps {
-  children: JSX.Element;
-}
-
-interface Pagination {
-  nowPage: number;
-  isLocked: boolean;
-}
-
-interface States {
-  searchText: string;
-  setSearchText: Dispatch<SetStateAction<string>>;
-  pagination: Pagination;
-  setPagination: React.Dispatch<React.SetStateAction<Pagination>>;
-}
+/* API 格式 Enum */
+import { searchParams } from '../api/format';
+const { UNIQUE, DISPLAY_FORMAT_VALUE, ORDER, DIR } = searchParams;
 
 /* Context */
 const context = createContext({} as States);
@@ -28,6 +16,12 @@ const Provider = ({ children }: ProviderProps): JSX.Element => {
     nowPage: 1,
     isLocked: false,
   }));
+  const [displayFilterValue, setDisplayFilterValue] = useState<DisplayFilter>({
+    uniqueMode: UNIQUE.CARDS,
+    displayFormat: DISPLAY_FORMAT_VALUE.IMAGE,
+    order: ORDER.NAME,
+    orderDirection: DIR.Auto,
+  });
 
   // States Object
   const states = {
@@ -36,6 +30,8 @@ const Provider = ({ children }: ProviderProps): JSX.Element => {
     setSearchText,
     pagination,
     setPagination,
+    displayFilterValue,
+    setDisplayFilterValue,
   };
 
   return <context.Provider value={states}>{children}</context.Provider>;

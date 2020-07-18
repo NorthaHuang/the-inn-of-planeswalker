@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect, useLayoutEffect } from 'react';
 import StyledWrapper from './styled';
 import context from '../../../store';
-import { apiCardsSearch, CardsSearchParams } from '../../../api';
+import { apiCardsSearch } from '../../../api';
+import { CardsSearchParams } from '../../../api/format';
 
 import CardsHeader from '../../CardsHeader';
 import Pagination from '../../Pagination';
