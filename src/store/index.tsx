@@ -24,12 +24,11 @@ const Provider = ({ children }: ProviderProps): JSX.Element => {
 
   // States Object
   const states = {
-    // 搜索之字串
-    searchText,
+    searchText, // 搜索之字串
     setSearchText,
-    pagination,
+    pagination, // 分頁資訊
     setPagination,
-    displayFilterValue,
+    displayFilterValue, // 顯示過濾器參數
     setDisplayFilterValue,
   };
 
