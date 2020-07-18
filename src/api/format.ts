@@ -1,18 +1,21 @@
 /*----- Enum -----*/
 /* Cards */
 // Search
-enum UNIQUE { // 卡牌重複之模式
+/** enum 卡牌重複之模式 */
+export enum UNIQUE {
   CARDS = 'cards',
   ART = 'art',
   PRINTS = 'prints',
 }
-enum DISPLAY_FORMAT_VALUE { // 顯示之格式: Local 使用，故使用預設數字
+/** enum 顯示之格式: Local 使用，故使用預設數字 */
+export enum DISPLAY_FORMAT_VALUE {
   IMAGE,
   CHECK_LIST,
   TEXT_ONLY,
   FULL,
 }
-enum ORDER { // 排序
+/** enum 排序 */
+export enum ORDER {
   NAME = 'name',
   SET = 'set',
   RELEASED = 'released',
@@ -27,17 +30,12 @@ enum ORDER { // 排序
   EDHREC = 'edhrec',
   ARTIST = 'artist',
 }
-enum DIR { // 排序方向
+/** enum 排序方向 */
+export enum DIR {
   Auto = 'auto',
   ASC = 'asc',
   DESC = 'desc',
 }
-export const searchParams = {
-  UNIQUE,
-  DISPLAY_FORMAT_VALUE,
-  ORDER,
-  DIR,
-};
 
 /*----- Interface -----*/
 /* Cards */

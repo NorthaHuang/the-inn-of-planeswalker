@@ -4,7 +4,7 @@ import context from '../../../store';
 import Select from '../../tags/Select';
 
 /* API 格式 Enum */
-import { searchParams } from '../../../api/format';
+import { UNIQUE, DISPLAY_FORMAT_VALUE, ORDER, DIR } from '../../../api/format';
 
 interface SelectData {
   keyName: string;
@@ -20,9 +20,6 @@ interface OptionsData {
 
 const DisplayFilter = (): JSX.Element => {
   /* Reference */
-  const { UNIQUE, DISPLAY_FORMAT_VALUE, ORDER, DIR } = useRef({
-    ...searchParams,
-  }).current;
   /* Options Data 常數定義 */
   const optionsData = useRef<OptionsData>({
     uniqueMode: [

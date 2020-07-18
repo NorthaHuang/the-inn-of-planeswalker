@@ -2,8 +2,7 @@ import React, { createContext, useState } from 'react';
 import { ProviderProps, Pagination, DisplayFilter, States } from './interface';
 
 /* API 格式 Enum */
-import { searchParams } from '../api/format';
-const { UNIQUE, DISPLAY_FORMAT_VALUE, ORDER, DIR } = searchParams;
+import { UNIQUE, DISPLAY_FORMAT_VALUE, ORDER, DIR } from '../api/format';
 
 /* Context */
 const context = createContext({} as States);
