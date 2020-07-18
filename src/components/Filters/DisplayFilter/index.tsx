@@ -145,7 +145,9 @@ const DisplayFilter = (): JSX.Element => {
   ]).current;
 
   /* Context */
-  const { displayFilterValue, setDisplayFilterValue } = useContext(context);
+  const { displayFilterValue, setDisplayFilterValue, setPagination } = useContext(
+    context
+  );
 
   return (
     <StyledWrapper>
@@ -155,12 +157,16 @@ const DisplayFilter = (): JSX.Element => {
             key={keyName}
             optionsData={optionsData[keyName]}
             defaultValue={displayFilterValue[keyName]}
-            onChange={value =>
+            onChange={value => {
+              setPagination(state => ({
+                ...state,
+                isLocked: true,
+              }));
               setDisplayFilterValue(states => ({
                 ...states,
                 [keyName]: valueType === 'string' ? value.toString() : +value,
-              }))
-            }
+              }));
+            }}
           />
         )
       )}

@@ -10,7 +10,9 @@ import CardsList from '../../CardsList';
 
 const Cards = (): JSX.Element => {
   /* Context */
-  const { searchText, pagination, setPagination } = useContext(context);
+  const { searchText, pagination, setPagination, displayFilterValue } = useContext(
+    context
+  );
 
   /* States */
   const [cardsData, setCardsData] = useState<any>(() => {});
@@ -20,7 +22,15 @@ const Cards = (): JSX.Element => {
 
   /* Get Card List */
   const getCardList = (params: CardsSearchParams) => {
-    apiCardsSearch(params)
+    const defaultParams = {
+      q: searchText,
+      page: pagination.nowPage,
+      unique: displayFilterValue.uniqueMode,
+      order: displayFilterValue.order,
+      dir: displayFilterValue.orderDirection,
+    };
+    const extendedParams = Object.assign(defaultParams, params);
+    apiCardsSearch(extendedParams)
       .then(response => setCardsData(response.data))
       .catch(error => console.log(error));
   };
@@ -43,7 +53,7 @@ const Cards = (): JSX.Element => {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchText]);
+  }, [searchText, displayFilterValue]);
 
   /* Get other page's card list */
   useEffect(() => {

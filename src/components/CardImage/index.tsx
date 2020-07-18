@@ -46,7 +46,7 @@ const CardImage = ({ card }: ComponentProps): JSX.Element => {
   return (
     /** Alpha 版本邊角較圓潤，所以需要特別調整 */
     <StyledWrapper
-      title={card.name}
+      title={`${card.name} (${card.set})`}
       style={{
         backgroundImage:
           card.layout === CARD_LAYOUT.NORMAL ? `url(${cardBackImg})` : 'none',
