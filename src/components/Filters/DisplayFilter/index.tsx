@@ -4,7 +4,7 @@ import context from '../../../store';
 import Select from '../../tags/Select';
 
 /* API 格式 Enum */
-import { UNIQUE, DISPLAY_FORMAT_VALUE, ORDER, DIR } from '../../../api/format';
+import { UNIQUE, ORDER, DIR } from '../../../api/format';
 
 interface ISelectData {
   keyName: string;
@@ -34,24 +34,6 @@ const DisplayFilter = (): JSX.Element => {
       {
         value: UNIQUE.PRINTS,
         text: '所有版本',
-      },
-    ],
-    displayFormat: [
-      {
-        value: DISPLAY_FORMAT_VALUE.IMAGE,
-        text: '圖片',
-      },
-      {
-        value: DISPLAY_FORMAT_VALUE.CHECK_LIST,
-        text: '清單',
-      },
-      {
-        value: DISPLAY_FORMAT_VALUE.TEXT_ONLY,
-        text: '純文字',
-      },
-      {
-        value: DISPLAY_FORMAT_VALUE.FULL,
-        text: '全部資訊',
       },
     ],
     order: [
@@ -129,10 +111,6 @@ const DisplayFilter = (): JSX.Element => {
     {
       keyName: 'uniqueMode',
       valueType: 'string',
-    },
-    {
-      keyName: 'displayFormat',
-      valueType: 'number',
     },
     {
       keyName: 'order',

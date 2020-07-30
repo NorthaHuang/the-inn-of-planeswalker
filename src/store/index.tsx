@@ -11,7 +11,7 @@ import { apiGetSymbols } from '../api';
 import { ISymbols } from '../api/format';
 
 /* API 格式 Enum */
-import { UNIQUE, DISPLAY_FORMAT_VALUE, ORDER, DIR } from '../api/format';
+import { UNIQUE, ORDER, DIR } from '../api/format';
 
 /* Context */
 const context = createContext({} as IStates);
@@ -27,7 +27,6 @@ const Provider = ({ children }: IProviderProps): JSX.Element => {
   }));
   const [displayFilterValue, setDisplayFilterValue] = useState<IDisplayFilter>({
     uniqueMode: UNIQUE.CARDS,
-    displayFormat: DISPLAY_FORMAT_VALUE.IMAGE,
     order: ORDER.NAME,
     orderDirection: DIR.Auto,
   });

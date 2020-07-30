@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import Cards from '../components/pages/Cards';
-import Decks from '../components/pages/Decks';
 import About from '../components/pages/About';
 
 interface IRoutesItem {
@@ -16,12 +15,6 @@ const routes: IRoutesItem[] = [
     path: '/',
     component: Cards,
     exact: true,
-  },
-  {
-    name: 'Decks',
-    path: '/decks',
-    component: Decks,
-    exact: false,
   },
   {
     name: 'About',

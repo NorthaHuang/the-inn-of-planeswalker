@@ -7,13 +7,6 @@ export enum UNIQUE {
   ART = 'art',
   PRINTS = 'prints',
 }
-/** enum 顯示之格式: Local 使用，故使用預設數字 */
-export enum DISPLAY_FORMAT_VALUE {
-  IMAGE,
-  CHECK_LIST,
-  TEXT_ONLY,
-  FULL,
-}
 /** enum 排序 */
 export enum ORDER {
   NAME = 'name',

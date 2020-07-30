@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { ISymbols, UNIQUE, DISPLAY_FORMAT_VALUE, ORDER, DIR } from '../api/format';
+import { ISymbols, UNIQUE, ORDER, DIR } from '../api/format';
 
 /* Interface */
 export interface IProviderProps {
@@ -15,7 +15,6 @@ export interface IPagination {
 export interface IDisplayFilter {
   [propertynName: string]: string | number;
   uniqueMode: UNIQUE;
-  displayFormat: DISPLAY_FORMAT_VALUE;
   order: ORDER;
   orderDirection: DIR;
 }
