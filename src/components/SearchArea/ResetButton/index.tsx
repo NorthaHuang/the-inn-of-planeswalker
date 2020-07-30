@@ -1,11 +1,11 @@
 import React from 'react';
 import ButtonStyled from './styled';
 
-interface ComponentProps {
+interface IComponentProps {
   setInputText: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ResetButton = ({ setInputText }: ComponentProps): JSX.Element => (
+const ResetButton = ({ setInputText }: IComponentProps): JSX.Element => (
   <ButtonStyled type="reset" onClick={() => setInputText('')} />
 );
 

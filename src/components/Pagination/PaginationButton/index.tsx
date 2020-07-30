@@ -2,7 +2,7 @@ import React, { useState, useContext, useLayoutEffect } from 'react';
 import StyledWrapper from './styled';
 import context from '../../../store';
 
-interface ComponentProps {
+interface IComponentProps {
   children: string;
   paginationType: string;
   targetPage: number;
@@ -14,7 +14,7 @@ const PaginationButton = ({
   paginationType,
   targetPage,
   totalPageNumber,
-}: ComponentProps): JSX.Element => {
+}: IComponentProps): JSX.Element => {
   /* Context */
   const { pagination, setPagination } = useContext(context);
 

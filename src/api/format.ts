@@ -40,7 +40,7 @@ export enum DIR {
 /*----- Interface -----*/
 /* Cards */
 // Search
-export interface CardsSearchParams {
+export interface ICardsSearchParams {
   q: string;
   unique?: UNIQUE;
   order?: ORDER;
@@ -54,9 +54,25 @@ export interface CardsSearchParams {
 }
 
 // Autocomplete: 字串長度須 >= 2
-export interface CardsAutocompleteParams {
+export interface ICardsAutocompleteParams {
   q: string;
   format?: 'json';
   pretty?: boolean;
   include_extras?: boolean;
+}
+
+/* Symbols */
+export interface ISymbols {
+  object: string;
+  symbol: string;
+  svg_uri: string;
+  loose_variant: string | null;
+  english: string;
+  transposable: boolean;
+  represents_mana: boolean;
+  cmc?: number;
+  appears_in_mana_costs: boolean;
+  funny: boolean;
+  colors: string[];
+  gatherer_alternates?: string[];
 }

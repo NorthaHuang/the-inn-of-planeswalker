@@ -1,5 +1,5 @@
 import axios, { AxiosPromise } from 'axios';
-import { CardsSearchParams, CardsAutocompleteParams } from './format';
+import { ICardsSearchParams, ICardsAutocompleteParams } from './format';
 
 // API 來源網址
 const API_URL = 'https://api.scryfall.com';
@@ -17,29 +17,33 @@ const cardsRequest = axios.create({
 
 /* Instance */
 // Search
-export const apiCardsSearch = (params: CardsSearchParams): AxiosPromise =>
+export const apiCardsSearch = (params: ICardsSearchParams): AxiosPromise =>
   cardsRequest.get('/search', { params });
 
 // Autocomplete: 字串長度須 >= 2
-export const apiCardsAutocomplete = (params: CardsAutocompleteParams): AxiosPromise =>
+export const apiCardsAutocomplete = (params: ICardsAutocompleteParams): AxiosPromise =>
   cardsRequest.get('/autocomplete', { params });
 // Collection
 // One Card
 
 /*----- Sets -----*/
-// const setsRequest = axios.create({
+// export const setsRequest = axios.create({
 //   baseURL: `${API_URL}/sets`,
 //   headers,
 // });
 
-/*----- Symbols -----*/
-// const symbolsRequest = axios.create({
-//   baseURL: `${API_URL}/symbology`,
-//   headers,
-// });
-
 /*----- Catalogs -----*/
-// const catalogsRequest = axios.create({
+// export const catalogsRequest = axios.create({
 //   baseURL: `${API_URL}/catalog`,
 //   headers,
 // });
+
+/*----- Symbols -----*/
+/* Base Instance */
+const symbolsRequest = axios.create({
+  baseURL: API_URL,
+  headers,
+});
+
+// Get Symbols
+export const apiGetSymbols = (): AxiosPromise => symbolsRequest.get('/symbology');

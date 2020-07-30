@@ -5,18 +5,22 @@ import StyledWrapper from './styled';
  * 不使用布林值的原因是:
  * 如果需要使用布林值的話就用 radio / checkbox 就好了
  */
-interface OptionsData {
+interface IOptionsData {
   value: string | number;
   text?: string;
 }
 
-interface ComponentProps {
+interface IComponentProps {
   defaultValue?: string | number;
-  optionsData: OptionsData[];
+  optionsData: IOptionsData[];
   onChange: (value: string | number) => void;
 }
 
-const Select = ({ optionsData, defaultValue, onChange }: ComponentProps): JSX.Element => {
+const Select = ({
+  optionsData,
+  defaultValue,
+  onChange,
+}: IComponentProps): JSX.Element => {
   return (
     <StyledWrapper
       value={defaultValue?.toString() || optionsData[0].value}

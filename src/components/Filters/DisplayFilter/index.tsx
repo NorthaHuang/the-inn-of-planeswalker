@@ -6,12 +6,12 @@ import Select from '../../tags/Select';
 /* API 格式 Enum */
 import { UNIQUE, DISPLAY_FORMAT_VALUE, ORDER, DIR } from '../../../api/format';
 
-interface SelectData {
+interface ISelectData {
   keyName: string;
   valueType: string;
 }
 
-interface OptionsData {
+interface IOptionsData {
   [propertynName: string]: {
     value: string | number;
     text: string;
@@ -21,7 +21,7 @@ interface OptionsData {
 const DisplayFilter = (): JSX.Element => {
   /* Reference */
   /* Options Data 常數定義 */
-  const optionsData = useRef<OptionsData>({
+  const optionsData = useRef<IOptionsData>({
     uniqueMode: [
       {
         value: UNIQUE.CARDS,
@@ -125,7 +125,7 @@ const DisplayFilter = (): JSX.Element => {
   }).current;
 
   /* Select 組件的參數資料；for 遞迴用 */
-  const selectData = useRef<SelectData[]>([
+  const selectData = useRef<ISelectData[]>([
     {
       keyName: 'uniqueMode',
       valueType: 'string',
@@ -152,7 +152,7 @@ const DisplayFilter = (): JSX.Element => {
   return (
     <StyledWrapper>
       {selectData.map(
-        ({ keyName, valueType }: SelectData): JSX.Element => (
+        ({ keyName, valueType }: ISelectData): JSX.Element => (
           <Select
             key={keyName}
             optionsData={optionsData[keyName]}

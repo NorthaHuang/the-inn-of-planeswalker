@@ -2,7 +2,7 @@ import React, { useState, useContext, useRef, useEffect, useLayoutEffect } from 
 import StyledWrapper from './styled';
 import context from '../../../store';
 import { apiCardsSearch } from '../../../api';
-import { CardsSearchParams } from '../../../api/format';
+import { ICardsSearchParams } from '../../../api/format';
 
 import CardsHeader from '../../CardsHeader';
 import Pagination from '../../Pagination';
@@ -21,7 +21,7 @@ const Cards = (): JSX.Element => {
   const isLoaded = useRef<boolean>(false);
 
   /* Get Card List */
-  const getCardList = (params: CardsSearchParams) => {
+  const getCardList = (params: ICardsSearchParams) => {
     const defaultParams = {
       q: searchText,
       page: pagination.nowPage,
