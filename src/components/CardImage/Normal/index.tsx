@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface ComponentProps {
+interface IComponentProps {
   card: any;
 }
 
-const Normal = ({ card }: ComponentProps): JSX.Element => (
+const Normal = ({ card }: IComponentProps): JSX.Element => (
   <img src={card.image_uris?.normal} alt={card.name} />
 );
 

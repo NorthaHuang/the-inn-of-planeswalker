@@ -3,7 +3,7 @@ import StyledWrapper from './styled';
 import { NavLink } from 'react-router-dom';
 import CardImage from '../CardImage';
 
-interface ComponentProps {
+interface IComponentProps {
   list: any[];
 }
 
@@ -12,7 +12,7 @@ interface ComponentProps {
  * 如果僅一筆資料，則直接導向該卡詳細內容頁
  */
 
-const CardsList = ({ list }: ComponentProps): JSX.Element => {
+const CardsList = ({ list }: IComponentProps): JSX.Element => {
   return (
     <StyledWrapper>
       <div className="container">

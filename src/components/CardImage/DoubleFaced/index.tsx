@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import transform from '../../../assets/images/icons/transform.svg';
 
-interface ComponentProps {
+interface IComponentProps {
   card: any;
 }
 
-const DoubleFaced = ({ card }: ComponentProps): JSX.Element => {
+const DoubleFaced = ({ card }: IComponentProps): JSX.Element => {
   const [isTransformed, setIsTransformed] = useState<boolean>(() => false);
 
   return (

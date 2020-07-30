@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import rotate from '../../../assets/images/icons/rotate.svg';
 
-interface ComponentProps {
+interface IComponentProps {
   card: any;
 }
 
-const Split = ({ card }: ComponentProps): JSX.Element => {
+const Split = ({ card }: IComponentProps): JSX.Element => {
   const [isRotate, setIsRotate] = useState<boolean>(() => false);
 
   return (

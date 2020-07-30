@@ -3,14 +3,14 @@ import Cards from '../components/pages/Cards';
 import Decks from '../components/pages/Decks';
 import About from '../components/pages/About';
 
-interface RoutesItem {
+interface IRoutesItem {
   name: string;
   path: string;
   component: FC;
   exact: boolean;
 }
 
-const routes: RoutesItem[] = [
+const routes: IRoutesItem[] = [
   {
     name: 'Cards',
     path: '/',

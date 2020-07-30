@@ -3,34 +3,34 @@ import StyledWrapper from './styled';
 import context from '../../store';
 import PaginationButton from './PaginationButton';
 
-interface ComponentProps {
+interface IComponentProps {
   cardsData: any;
 }
 
-interface CardsNumber {
+interface ICardsNumber {
   PER_PAGE: number;
   total: number;
 }
 
-interface PageButtonMeta {
+interface IPageButtonMeta {
   id: string;
   children: string;
   paginationType: string;
   targetPage: number;
 }
 
-const Pagination = ({ cardsData }: ComponentProps): JSX.Element => {
+const Pagination = ({ cardsData }: IComponentProps): JSX.Element => {
   /* TODO: 更新好多次... */
   // console.log(cardsData);
 
   /* Pagination Button Metadata (for render pagination button) */
-  const [paginationButtonMeta, setPaginationButtonMeta] = useState<PageButtonMeta[]>([]);
+  const [paginationButtonMeta, setPaginationButtonMeta] = useState<IPageButtonMeta[]>([]);
 
   /* Context */
   const { pagination } = useContext(context);
 
   /* States */
-  const [cardsNumber, setCardsNumber] = useState<CardsNumber>(() => ({
+  const [cardsNumber, setCardsNumber] = useState<ICardsNumber>(() => ({
     PER_PAGE: 175, // 每頁卡片數量
     total: 0, // 總卡片數
   }));

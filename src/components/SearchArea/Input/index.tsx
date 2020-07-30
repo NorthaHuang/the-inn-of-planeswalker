@@ -1,12 +1,12 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import InputStyled from './styled';
 
-interface ComponentProps {
+interface IComponentProps {
   inputText: string;
   setInputText: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Input = ({ inputText, setInputText }: ComponentProps): JSX.Element => {
+const Input = ({ inputText, setInputText }: IComponentProps): JSX.Element => {
   /* Input's Ref */
   const inputRef = useRef<HTMLInputElement | null>(null);
 

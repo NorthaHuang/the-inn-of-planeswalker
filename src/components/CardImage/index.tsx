@@ -7,7 +7,7 @@ import Normal from './Normal';
 import DoubleFaced from './DoubleFaced';
 import Split from './Split';
 
-interface ComponentProps {
+interface IComponentProps {
   card: any;
 }
 
@@ -24,7 +24,7 @@ enum CARD_LAYOUT {
  *   6. 搜索是否有其他格式，沒有則收尾優化
  */
 
-const CardImage = ({ card }: ComponentProps): JSX.Element => {
+const CardImage = ({ card }: IComponentProps): JSX.Element => {
   /* TODO: MouseOver 時懸浮出大圖 */
 
   /* Layout 判斷 */
@@ -46,7 +46,7 @@ const CardImage = ({ card }: ComponentProps): JSX.Element => {
   return (
     /** Alpha 版本邊角較圓潤，所以需要特別調整 */
     <StyledWrapper
-      title={card.name}
+      title={`${card.name} (${card.set})`}
       style={{
         backgroundImage:
           card.layout === CARD_LAYOUT.NORMAL ? `url(${cardBackImg})` : 'none',

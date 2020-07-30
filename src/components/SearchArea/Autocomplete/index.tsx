@@ -2,13 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import StyledWrapper from './styled';
 import { apiCardsAutocomplete } from '../../../api';
 
-interface ComponentProps {
+interface IComponentProps {
   inputText: string;
   setInputText: React.Dispatch<React.SetStateAction<string>>;
 }
 
 // Search Timer Reference
-interface AutocompleteRef {
+interface IAutocompleteRef {
   searchTimer: number;
 }
 
@@ -18,12 +18,12 @@ enum SEARCH {
   TIMEOUT = 300, // 延後 Request 之時間(毫秒)
 }
 
-const Autocomplete = ({ inputText, setInputText }: ComponentProps): JSX.Element => {
+const Autocomplete = ({ inputText, setInputText }: IComponentProps): JSX.Element => {
   /* Autocomplete Result List */
   const [list, setList] = useState<string[]>(() => []);
 
   /* 打字延遲搜尋用參數，避免 Request 過多 */
-  const autocompleteRef = useRef<AutocompleteRef>({
+  const autocompleteRef = useRef<IAutocompleteRef>({
     searchTimer: 0,
   });
 

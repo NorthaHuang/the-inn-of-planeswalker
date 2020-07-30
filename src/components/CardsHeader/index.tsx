@@ -2,17 +2,22 @@ import React from 'react';
 import StyledWrapper from './styled';
 
 import Pagination from '../Pagination';
+import Filters from '../Filters';
 
-interface ComponentProps {
+interface IComponentProps {
   cardsData: any;
 }
 
-const CardsHeader = ({ cardsData }: ComponentProps): JSX.Element => (
+const CardsHeader = ({ cardsData }: IComponentProps): JSX.Element => (
   <StyledWrapper>
     <div className="container">
       <div className="row">
         <div className="col">
-          <Pagination cardsData={cardsData} />
+          <div className="content">
+            <Filters />
+
+            <Pagination cardsData={cardsData} />
+          </div>
         </div>
       </div>
     </div>
