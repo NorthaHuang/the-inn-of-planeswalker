@@ -20,7 +20,7 @@ const context = createContext({} as IStates);
 const Provider = ({ children }: IProviderProps): JSX.Element => {
   // TODO: 完成後記得刪除預設值
   const [symbolsData, setSymbolsData] = useState<ISymbols[]>([]);
-  const [searchText, setSearchText] = useState<string>(() => 'set:lea');
+  const [searchText, setSearchText] = useState<string>(() => 'set:m21');
   const [pagination, setPagination] = useState<IPagination>(() => ({
     nowPage: 1,
     isLocked: false,
@@ -34,6 +34,7 @@ const Provider = ({ children }: IProviderProps): JSX.Element => {
     isShow: false,
     content: null,
   });
+  const [isInputFocus, setIsInputFocus] = useState<boolean>(false);
 
   useLayoutEffect(() => {
     console.log('store 的 uselayouteffect.');
@@ -52,6 +53,8 @@ const Provider = ({ children }: IProviderProps): JSX.Element => {
     setDisplayFilterValue,
     lightbox, // Lightbox 資料
     setLightbox,
+    isInputFocus, // 是否 Focus 在 Input 上
+    setIsInputFocus,
   };
 
   return <context.Provider value={states}>{children}</context.Provider>;

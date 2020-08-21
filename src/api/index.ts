@@ -1,5 +1,10 @@
 import axios, { AxiosPromise } from 'axios';
-import { ICardsSearchParams, ICardsAutocompleteParams } from './format';
+import {
+  ICardsSearchParams,
+  ICardsAutocompleteParams,
+  ICardUrlParams,
+  ICardParams,
+} from './format';
 
 // API 來源網址
 const API_URL = 'https://api.scryfall.com';
@@ -24,7 +29,9 @@ export const apiCardsSearch = (params: ICardsSearchParams): AxiosPromise =>
 export const apiCardsAutocomplete = (params: ICardsAutocompleteParams): AxiosPromise =>
   cardsRequest.get('/autocomplete', { params });
 // Collection
-// One Card
+// Card
+export const apiCard = (urlParams: ICardUrlParams, params: ICardParams): AxiosPromise =>
+  cardsRequest.get(`/${urlParams.code}/${urlParams.number}`, { params });
 
 /*----- Sets -----*/
 // export const setsRequest = axios.create({

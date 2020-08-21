@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import StyledWrapper from './styled';
+import context from '../../../store';
 import { apiCardsAutocomplete } from '../../../api';
 
 interface IComponentProps {
@@ -19,6 +20,9 @@ enum SEARCH {
 }
 
 const Autocomplete = ({ inputText, setInputText }: IComponentProps): JSX.Element => {
+  /* Context */
+  const { isInputFocus } = useContext(context);
+
   /* Autocomplete Result List */
   const [list, setList] = useState<string[]>(() => []);
 
@@ -64,7 +68,7 @@ const Autocomplete = ({ inputText, setInputText }: IComponentProps): JSX.Element
   // const display = inputText === list[0] && list.length === 1 ? 'none' : 'block';
 
   return (
-    <StyledWrapper>
+    <StyledWrapper style={{ display: isInputFocus ? 'block' : 'none' }}>
       {list.map(cardName => (
         <li key={cardName}>
           <button type="button" onClick={buttonHandler}>

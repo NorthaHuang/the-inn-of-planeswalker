@@ -6,7 +6,8 @@ const About = (): JSX.Element => (
     <div className="container">
       <div className="row">
         <div className="col">
-          <p>About</p>
+          <h1>About</h1>
+          <p>router 測試</p>
         </div>
       </div>
     </div>

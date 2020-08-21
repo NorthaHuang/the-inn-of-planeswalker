@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import FormStyled from './styled';
 import context from '../../store';
 
@@ -11,6 +12,10 @@ const SearchInput = (): JSX.Element => {
   /* Context */
   const { setSearchText, pagination, setPagination } = useContext(context);
 
+  /* useHistory */
+  const history = useHistory();
+  const location = useLocation();
+
   /* Local States */
   const [inputText, setInputText] = useState<string>(() => '');
 
@@ -21,6 +26,9 @@ const SearchInput = (): JSX.Element => {
     if (inputText.length < 1) {
       return;
     }
+
+    // 返回卡牌清單
+    location.pathname !== '/' && history.push('/');
 
     // 更新搜索字串
     setSearchText(inputText);
@@ -36,7 +44,6 @@ const SearchInput = (): JSX.Element => {
     <FormStyled onSubmit={submit}>
       <Input inputText={inputText} setInputText={setInputText} />
       <ResetButton setInputText={setInputText} />
-
       <Autocomplete inputText={inputText} setInputText={setInputText} />
     </FormStyled>
   );

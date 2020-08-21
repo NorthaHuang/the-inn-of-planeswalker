@@ -1,5 +1,6 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useLayoutEffect, useContext } from 'react';
 import InputStyled from './styled';
+import context from '../../../store';
 
 interface IComponentProps {
   inputText: string;
@@ -7,6 +8,9 @@ interface IComponentProps {
 }
 
 const Input = ({ inputText, setInputText }: IComponentProps): JSX.Element => {
+  /* Context */
+  const { setIsInputFocus } = useContext(context);
+
   /* Input's Ref */
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -20,6 +24,8 @@ const Input = ({ inputText, setInputText }: IComponentProps): JSX.Element => {
     <InputStyled
       value={inputText}
       onChange={evt => setInputText(evt.target.value)}
+      onFocus={() => setIsInputFocus(true)}
+      onBlur={() => setIsInputFocus(false)}
       type="text"
       placeholder="Cards name..."
       ref={inputRef}
