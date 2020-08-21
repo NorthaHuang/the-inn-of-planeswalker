@@ -7,7 +7,7 @@ const Footer = (): JSX.Element => (
       <div className="row">
         <div className="col">
           <div className="content">
-            <p>Powered by Scryfall, Created by Raven North.</p>
+            <p>Powered by Scryfall, Created by Northa.</p>
             <p>
               <a href="//magic.wizards.com" target="_blank" rel="noopener noreferrer">
                 Magic: The Gathering

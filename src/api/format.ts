@@ -54,6 +54,19 @@ export interface ICardsAutocompleteParams {
   include_extras?: boolean;
 }
 
+// Card
+export interface ICardParams {
+  lang?: string;
+  format?: string;
+  face?: string;
+  version?: string;
+  pretty?: boolean;
+}
+export interface ICardUrlParams {
+  code: string;
+  number: string;
+}
+
 /* Symbols */
 export interface ISymbols {
   object: string;

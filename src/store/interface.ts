@@ -34,4 +34,6 @@ export interface IStates {
   setDisplayFilterValue: React.Dispatch<React.SetStateAction<IDisplayFilter>>;
   lightbox: ILightbox;
   setLightbox: React.Dispatch<React.SetStateAction<ILightbox>>;
+  isInputFocus: boolean;
+  setIsInputFocus: React.Dispatch<React.SetStateAction<boolean>>;
 }
